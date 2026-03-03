@@ -35,3 +35,12 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+# --- Binary and OS Ignore Patterns ---
+# Local binaries/executables
+terraform
+terraform.exe
+*.exe
+
+# OS-specific clutter
+.DS_Store
+Thumbs.db
