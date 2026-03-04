@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: auditor-ingress
+  namespace: audit-project
+  annotations:
+    # This connects the "WAF" rule to the "Entry Point"
+    traefik.ingress.kubernetes.io/router.middlewares: audit-project-admin-whitelist@kubernetescrd
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /audit
+        pathType: Prefix
+        backend:
+          service:
+            name: auditor-svc
+            port:
+              number: 80

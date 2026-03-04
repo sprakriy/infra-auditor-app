@@ -1,0 +1,11 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: admin-whitelist
+  namespace: audit-project
+spec:
+  ipWhiteList:
+    sourceRange:
+      - 127.0.0.1/32    # Localhost
+      - 192.168.0.0/16  # Internal Network (Change to match your IP)
+      - 10.0.0.0/8      # Cluster Internal
