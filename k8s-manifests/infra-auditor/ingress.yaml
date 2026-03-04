@@ -5,7 +5,7 @@ metadata:
   namespace: audit-project
   annotations:
     # This connects the "WAF" rule to the "Entry Point"
-    traefik.ingress.kubernetes.io/router.middlewares: audit-project-admin-whitelist@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: audit-project-admin-whitelist@kubernetescrd,audit-project-strip-audit-prefix@kubernetescrd
 spec:
   rules:
   - http:
